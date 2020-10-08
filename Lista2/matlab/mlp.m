@@ -12,11 +12,19 @@ X = X';
 Y(2,Y(1,:)==1)=0;
 Y(2,Y(1,:)==0)=1;
 
+%params
+learning_rate = [0.1 0.5 1];
+training_funcions = ["trainscg" "trainga" "traingd"];
+hiden_layer_size = [10 20 50];
+ephocs = [20, 50,100];
+
+
 %define network and train
 acc = zeros(1, 10);
 for n = 1:10
-    net = patternnet(20);
-    net.trainParam.epochs = 100;
+    net = patternnet(hiden_layer_size(3), char(training_funcions(1)));
+    net.trainParam.epochs = ephocs(3);
+    net.trainParam.lr = learning_rate(1);
     [net,tr] = train(net,X,Y);
     
     %evaluate network
