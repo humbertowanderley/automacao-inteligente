@@ -30,7 +30,7 @@ for param1 = 1:size(hiden_layer_size,2)
     end
 end
 
-fprintf("Total de %d scenarios treinados.\n", cont);
+fprintf("Total de %d cenários avaliados.\n", cont);
 
 function run_scenario(X, Y, layerSize, trainFunc, learningRate, ephoc)
     %define network and train
